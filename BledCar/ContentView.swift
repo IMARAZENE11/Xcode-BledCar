@@ -2,22 +2,30 @@
 //  ContentView.swift
 //  BledCar
 //
-//  Created by user294323 on 3/15/26.
-//
 
 import SwiftUI
 
+// MARK: - SwiftUI Entry Point
+
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        BledCARViewControllerRepresentable()
+            .ignoresSafeArea()
     }
 }
+
+// MARK: - UIViewControllerRepresentable
+
+struct BledCARViewControllerRepresentable: UIViewControllerRepresentable {
+
+    func makeUIViewController(context: Context) -> BledCARWebViewController {
+        BledCARWebViewController()
+    }
+
+    func updateUIViewController(_ uiViewController: BledCARWebViewController, context: Context) {}
+}
+
+// MARK: - Preview
 
 #Preview {
     ContentView()
